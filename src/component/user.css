@@ -1,0 +1,14 @@
+.img{
+    width: 208px;
+    height: 208px;
+    
+  }
+
+.usercontainer{
+    display: flex;
+    justify-content: center;
+     padding: 20px;
+}
+.box{
+margin: 10px;
+}
