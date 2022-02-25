@@ -16,7 +16,7 @@ class App extends Component {
     }
   }
 getRepositories =() => {
-  axios.get(`http://api.github.com/users/${process.env.REACT_APP_user}/repos?client_id=${process.env.REACT_APP_user}&client_secret=${process.env.REACT_APP_client_id}&sort=created`)
+  axios.get(`http://api.github.com/users/${process.env.REACT_APP_user}/repos?client_id=${process.env.REACT_APP_client_id}&client_secret=${process.env.REACT_APP_client_secret}&sort=created`)
   .then(res=>{
    
     this.setState({
@@ -29,7 +29,7 @@ getRepositories =() => {
 
 
   getUser = () => {
-    axios.get(`http://api.github.com/users/${process.env.REACT_APP_user}?client_id=${process.env.REACT_APP_user}&client_secret=${process.env.REACT_APP_client_id}&sort=created`)
+    axios.get(`http://api.github.com/users/${process.env.REACT_APP_user}?client_id=${process.env.REACT_APP_client_id}&client_secret=${process.env.REACT_APP_client_secret}&sort=created`)
       .then(res => {
         this.setState({
           user: res.data
