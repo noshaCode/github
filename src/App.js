@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import './App.css';
+import './styles/App.css';
 import User from './component/User';
 import Repositories from './component/Repositories';
 
@@ -16,21 +16,20 @@ class App extends Component {
     }
   }
 getRepositories =() => {
-  axios.get("http://api.github.com/users/noshacode/repos?client_id=5adc8b1e744f10507b49&client_secret=877b6f31c0b7bcf63ca1b9b63db68cf49215635b&sort=created")
+  axios.get(`http://api.github.com/users/${process.env.REACT_APP_user}/repos?client_id=${process.env.REACT_APP_user}&client_secret=${process.env.REACT_APP_client_id}&sort=created`)
   .then(res=>{
-    console.log(res.data)
+   
     this.setState({
       respositorie :res.data
     })
-    .catch(err=>{
+  }).catch(err=>{
       console.log(err)
     })
-  })
 }
 
 
   getUser = () => {
-    axios.get("http://api.github.com/users/noshacode?client_id=5adc8b1e744f10507b49&client_secret=877b6f31c0b7bcf63ca1b9b63db68cf49215635b&sort=created")
+    axios.get(`http://api.github.com/users/${process.env.REACT_APP_user}?client_id=${process.env.REACT_APP_user}&client_secret=${process.env.REACT_APP_client_id}&sort=created`)
       .then(res => {
         this.setState({
           user: res.data
@@ -41,6 +40,8 @@ getRepositories =() => {
         console.log(err)
       })
   }
+
+  
 
   componentDidMount = () => {
     this.getUser()
